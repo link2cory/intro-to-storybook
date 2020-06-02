@@ -45,5 +45,11 @@
   },
   "bugs": {
     "url": "https://github.com/link2cory/intro-to-storybook/issues"
+  },
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
