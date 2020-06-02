@@ -1,7 +1,7 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
+// import { action } from '@storybook/addon-actions'
 
-import Task from './Task'
+import Task, { TaskStates } from './Task'
 
 export default {
   component: Task,
@@ -11,7 +11,15 @@ export default {
 }
 
 export const taskData = {
+  id: '1',
   title: 'Test Task',
+  state: TaskStates.TASK_INBOX,
 }
 
 export const Default = () => <Task task={{ ...taskData }} />
+export const Pinned = () => (
+  <Task task={{ ...taskData, state: TaskStates.TASK_PINNED }} />
+)
+export const Archived = () => (
+  <Task task={{ ...taskData, state: TaskStates.TASK_ARCHIVED }} />
+)
