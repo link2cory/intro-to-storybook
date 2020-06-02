@@ -6,10 +6,13 @@
   "license": "MIT",
   "scripts": {
     "start": "start-storybook",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "lint": "eslint src/**/*.ts[x]"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^5.3.19",
     "@storybook/react": "^5.3.19",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -17,12 +20,15 @@
     "@babel/core": "^7.10.2",
     "@storybook/preset-typescript": "^3.0.0",
     "@types/jest": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
     "babel-loader": "^8.1.0",
     "eslint": "^7.1.0",
     "eslint-config-airbnb-typescript": "^7.2.0",
     "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.20.0",
     "fork-ts-checker-webpack-plugin": "^4.1.6",
     "husky": "^4.2.3",
     "jest": "^26.0.1",
