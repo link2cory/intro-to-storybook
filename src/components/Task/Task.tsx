@@ -1,16 +1,6 @@
 import React from 'react'
 
-export interface TaskData {
-  id: string;
-  title: string;
-  state: 'TASK_INBOX' | 'TASK_PINNED' | 'TASK_ARCHIVED';
-}
-
-export interface TaskProps {
-  task: TaskData;
-  onArchiveTask: (action: string) => void;
-  onPinTask: (action: string) => void;
-}
+import { TaskProps } from './interfaces'
 
 const Task: React.FunctionComponent<TaskProps> = ({
   task: { id, title, state },

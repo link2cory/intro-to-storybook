@@ -1,7 +1,8 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 
-import Task, { TaskData } from './Task'
+import Task from './Task'
+import { TaskData } from './interfaces'
 
 export default {
   component: Task,
