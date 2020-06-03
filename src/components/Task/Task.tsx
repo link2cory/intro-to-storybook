@@ -12,10 +12,12 @@ interface TaskProps {
     title: string,
     state: TaskStates,
   };
+  onArchiveTask: (action: string) => void;
 }
 
 const Task: React.FunctionComponent<TaskProps> = ({
   task: { id, title, state },
+  onArchiveTask,
 }: TaskProps) => (
   <div className={`list-item ${state}`}>
     <label className='checkbox'>
@@ -25,7 +27,7 @@ const Task: React.FunctionComponent<TaskProps> = ({
         disabled
         name='checked'
       />
-      <span className='checkbox-custom' />
+      <span className='checkbox-custom' onClick={() => onArchiveTask(id)} />
     </label>
     <div className='title'>
       <input type='text' value={title} readOnly placeholder='Input title' />

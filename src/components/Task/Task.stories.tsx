@@ -1,5 +1,5 @@
 import React from 'react'
-// import { action } from '@storybook/addon-actions'
+import { action } from '@storybook/addon-actions'
 
 import Task, { TaskStates } from './Task'
 
@@ -16,10 +16,20 @@ export const taskData = {
   state: TaskStates.TASK_INBOX,
 }
 
-export const Default = () => <Task task={{ ...taskData }} />
+export const actionsData = {
+  onArchiveTask: action('onArchiveTask'),
+}
+
+export const Default = () => <Task task={{ ...taskData }} {...actionsData} />
 export const Pinned = () => (
-  <Task task={{ ...taskData, state: TaskStates.TASK_PINNED }} />
+  <Task
+    task={{ ...taskData, state: TaskStates.TASK_PINNED }}
+    {...actionsData}
+  />
 )
 export const Archived = () => (
-  <Task task={{ ...taskData, state: TaskStates.TASK_ARCHIVED }} />
+  <Task
+    task={{ ...taskData, state: TaskStates.TASK_ARCHIVED }}
+    {...actionsData}
+  />
 )
