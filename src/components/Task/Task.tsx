@@ -1,17 +1,13 @@
 import React from 'react'
 
-export enum TaskStates {
-  TASK_INBOX,
-  TASK_PINNED,
-  TASK_ARCHIVED,
+export interface TaskData {
+  id: string;
+  title: string;
+  state: 'TASK_INBOX' | 'TASK_PINNED' | 'TASK_ARCHIVED';
 }
 
-interface TaskProps {
-  task: {
-    id: string,
-    title: string,
-    state: TaskStates,
-  };
+export interface TaskProps {
+  task: TaskData;
   onArchiveTask: (action: string) => void;
   onPinTask: (action: string) => void;
 }
@@ -25,7 +21,7 @@ const Task: React.FunctionComponent<TaskProps> = ({
     <label className='checkbox'>
       <input
         type='checkbox'
-        defaultChecked={state === TaskStates.TASK_ARCHIVED}
+        defaultChecked={state === 'TASK_ARCHIVED'}
         disabled
         name='checked'
       />
@@ -35,7 +31,7 @@ const Task: React.FunctionComponent<TaskProps> = ({
       <input type='text' value={title} readOnly placeholder='Input title' />
     </div>
     <div className='actions' onClick={(event) => event.stopPropagation()}>
-      {state !== TaskStates.TASK_ARCHIVED && (
+      {state !== 'TASK_ARCHIVED' && (
         <a onClick={() => onPinTask(id)}>
           <span className='icon-star' />
         </a>

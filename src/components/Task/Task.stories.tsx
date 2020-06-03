@@ -1,7 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 
-import Task, { TaskStates } from './Task'
+import Task, { TaskData } from './Task'
 
 export default {
   component: Task,
@@ -10,10 +10,10 @@ export default {
   excludeStories: /.*Data$/,
 }
 
-export const taskData = {
+export const taskData: TaskData = {
   id: '1',
   title: 'Test Task',
-  state: TaskStates.TASK_INBOX,
+  state: 'TASK_INBOX',
 }
 
 export const actionsData = {
@@ -23,14 +23,8 @@ export const actionsData = {
 
 export const Default = () => <Task task={{ ...taskData }} {...actionsData} />
 export const Pinned = () => (
-  <Task
-    task={{ ...taskData, state: TaskStates.TASK_PINNED }}
-    {...actionsData}
-  />
+  <Task task={{ ...taskData, state: 'TASK_PINNED' }} {...actionsData} />
 )
 export const Archived = () => (
-  <Task
-    task={{ ...taskData, state: TaskStates.TASK_ARCHIVED }}
-    {...actionsData}
-  />
+  <Task task={{ ...taskData, state: 'TASK_ARCHIVED' }} {...actionsData} />
 )
