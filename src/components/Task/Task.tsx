@@ -13,11 +13,13 @@ interface TaskProps {
     state: TaskStates,
   };
   onArchiveTask: (action: string) => void;
+  onPinTask: (action: string) => void;
 }
 
 const Task: React.FunctionComponent<TaskProps> = ({
   task: { id, title, state },
   onArchiveTask,
+  onPinTask,
 }: TaskProps) => (
   <div className={`list-item ${state}`}>
     <label className='checkbox'>
@@ -31,6 +33,13 @@ const Task: React.FunctionComponent<TaskProps> = ({
     </label>
     <div className='title'>
       <input type='text' value={title} readOnly placeholder='Input title' />
+    </div>
+    <div className='actions' onClick={(event) => event.stopPropagation()}>
+      {state !== TaskStates.TASK_ARCHIVED && (
+        <a onClick={() => onPinTask(id)}>
+          <span className='icon-star' />
+        </a>
+      )}
     </div>
   </div>
 )
