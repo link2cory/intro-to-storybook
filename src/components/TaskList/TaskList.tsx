@@ -1,5 +1,6 @@
 import React from 'react'
-import Task, { TaskData } from '../Task/Task'
+import Task from '../Task'
+import { TaskData } from '../Task'
 
 interface TaskListProps {
   loading?: boolean;
